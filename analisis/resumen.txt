@@ -1,0 +1,77 @@
+source: /private/tmp/claude-501/-Users-alcideschaux-chauxlab-herramientas-redactor/40025ddb-5355-4d53-90be-dd9a21bdd71b/scratchpad/ia-edu-supplementary/data/IA-EDU-DATA-pseudonimizado.csv
+n: 667
+unique_ids: 667
+likert_items: 25
+incomplete_likert: 0
+
+## Sample
+area:
+  Health sciences: 463 (69.4%)
+  Social sciences: 88 (13.2%)
+  Engineering and technology: 64 (9.6%)
+  Humanities: 45 (6.7%)
+  Agricultural sciences: 7 (1.0%)
+sex:
+  Femenino: 497 (74.5%)
+  Masculino: 170 (25.5%)
+gender:
+  Mujer: 504 (75.6%)
+  Hombre: 163 (24.4%)
+institution:
+  Privada: 473 (70.9%)
+  Pública: 194 (29.1%)
+sex_gender_mismatches: 7
+age: n=667 mean=46.01 sd=10.27 median=47.0 min=27 max=76
+experience_years: n=667 mean=15.27 sd=9.65 median=14.0 min=1 max=41
+spearman_age_experience: 0.754
+
+## Items
+01 agree= 67.2% mean=3.70 sd=0.98 | General knowledge of AI | Entiendo los principios básicos de la IA
+02 agree= 54.3% mean=3.46 sd=0.93 | General knowledge of AI | Estoy familiarizado/a con las aplicaciones actuales de la IA en mi campo de estudio
+03 agree= 52.3% mean=3.40 sd=0.92 | General knowledge of AI | Conozco los avances recientes en el desarrollo de la tecnología de IA
+04 agree= 48.6% mean=3.32 sd=1.00 | General knowledge of AI | Puedo explicar cómo la IA puede influir en mi disciplina académica
+05 agree= 76.2% mean=3.90 sd=0.97 | Ethical perceptions of AI | Considero que la IA plantea desafíos éticos significativos
+06 agree= 71.2% mean=3.81 sd=0.99 | Ethical perceptions of AI | Estoy preocupado/a por los problemas de privacidad de datos relacionados con la IA
+07 agree= 60.4% mean=3.61 sd=0.92 | Ethical perceptions of AI | Creo que los sesgos en los algoritmos de la IA pueden conducir a decisiones injustas
+08 agree= 75.3% mean=3.87 sd=0.85 | Ethical perceptions of AI | La autonomía de las decisiones tomadas por sistemas de IA es una preocupación ética importante
+09 agree= 83.8% mean=4.16 sd=0.87 | Ethical perceptions of AI | Es esencial considerar las implicaciones éticas en el desarrollo y uso de la IA
+10 agree= 68.8% mean=3.76 sd=1.15 | AI in education | La IA puede mejorar significativamente la calidad de la enseñanza y el aprendizaje
+11 agree= 73.6% mean=3.90 sd=1.03 | AI in education | Estoy a favor de integrar herramientas de IA en mi práctica docente
+12 agree= 67.8% mean=3.81 sd=1.06 | AI in education | La IA podría ayudar en la personalización del aprendizaje para los estudiantes
+13 agree= 52.9% mean=3.51 sd=0.95 | AI in education | Tengo reservas sobre la dependencia de la IA en la evaluación académica
+14 agree= 84.6% mean=4.15 sd=0.99 | Training needs in AI and bioethics | Me beneficiaría de una formación adicional sobre IA y sus aplicaciones
+15 agree= 82.2% mean=4.16 sd=0.97 | Training needs in AI and bioethics | Hay una necesidad de incluir más contenido sobre bioética de la IA en los programas académicos
+16 agree= 91.6% mean=4.29 sd=0.91 | Training needs in AI and bioethics | Siento la necesidad de entender mejor los aspectos éticos de la IA
+17 agree= 71.8% mean=3.93 sd=1.04 | Curricular integration of AI and bioethics | Es importante incluir temas de IA y bioética en el currículo universitario
+18 agree= 82.8% mean=4.09 sd=0.96 | Curricular integration of AI and bioethics | Los estudiantes deberían estar más expuestos a las cuestiones éticas de la IA
+19 agree= 82.6% mean=4.18 sd=0.96 | Curricular integration of AI and bioethics | La formación en bioética de la IA es crucial para futuros profesionales
+20 agree= 35.2% mean=2.92 sd=1.33 | Personal experience and perception | He utilizado IA en mi investigación o enseñanza
+21 agree= 79.2% mean=3.95 sd=0.93 | Personal experience and perception | La IA cambiará significativamente la forma en la que enseñemos en los próximos años
+22 agree= 56.7% mean=3.72 sd=0.98 | Personal experience and perception | Estoy emocionado/a por las posibilidades que la IA ofrece para mi campo de estudio
+23 agree= 66.9% mean=3.77 sd=0.96 | Personal experience and perception | Tengo preocupaciones personales sobre el impacto de la IA en el empleo y la sociedad
+24 agree= 64.6% mean=3.74 sd=1.07 | Future perceptions and trends | La IA jugará un papel clave en el avance de mi disciplina en el futuro
+25 agree= 86.4% mean=4.11 sd=0.93 | Future perceptions and trends | Es importante estar al tanto de las tendencias emergentes en IA para mi desarrollo profesional
+
+## Domains
+General knowledge of AI: items=4 alpha=0.903 mean=3.47 sd=0.84
+Ethical perceptions of AI: items=5 alpha=0.877 mean=3.87 sd=0.76
+AI in education: items=4 alpha=0.873 mean=3.75 sd=0.89
+Training needs in AI and bioethics: items=3 alpha=0.931 mean=4.20 sd=0.90
+Curricular integration of AI and bioethics: items=3 alpha=0.909 mean=4.07 sd=0.91
+Personal experience and perception: items=4 alpha=0.779 mean=3.59 sd=0.82
+Future perceptions and trends: items=2 alpha=0.839 mean=3.93 sd=0.93
+
+## Engineering and technology versus all other areas
+General knowledge of AI: tech_n=64 tech_mean=3.70 other_n=603 other_mean=3.45 d=0.30 mannwhitney_p=0.006659
+Ethical perceptions of AI: tech_n=64 tech_mean=4.17 other_n=603 other_mean=3.84 d=0.45 mannwhitney_p=0.008506
+AI in education: tech_n=64 tech_mean=4.06 other_n=603 other_mean=3.71 d=0.39 mannwhitney_p=0.003126
+Training needs in AI and bioethics: tech_n=64 tech_mean=4.46 other_n=603 other_mean=4.17 d=0.32 mannwhitney_p=0.119
+Curricular integration of AI and bioethics: tech_n=64 tech_mean=4.26 other_n=603 other_mean=4.05 d=0.23 mannwhitney_p=0.3437
+Personal experience and perception: tech_n=64 tech_mean=4.18 other_n=603 other_mean=3.53 d=0.82 mannwhitney_p=1.552e-11
+Future perceptions and trends: tech_n=64 tech_mean=4.24 other_n=603 other_mean=3.89 d=0.38 mannwhitney_p=0.04026
+
+spearman_experience_knowledge: -0.006
+spearman_age_knowledge: 0.023
+
+## Private versus public institution, general knowledge
+private_n=473 private_mean=3.45 sd=0.82 public_n=194 public_mean=3.53 sd=0.90 d=-0.10 mannwhitney_p=0.01784
