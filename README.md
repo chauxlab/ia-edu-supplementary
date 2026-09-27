@@ -1,29 +1,29 @@
-# Supplementary materials — University teachers' knowledge, ethical concerns, and training needs regarding artificial intelligence: a cross-sectional survey in Paraguay
+# Material suplementario abierto — Conocimiento, preocupaciones éticas y necesidades de formación de docentes universitarios sobre inteligencia artificial: una encuesta transversal en Paraguay
 
 Andrea Paola Britos Gómez, Alcides Chaux — ChauxLab Institute, Asunción, Paraguay
 
-This repository holds the open supplementary materials for the manuscript submitted to *Investigación en Educación Médica* (Facultad de Medicina, UNAM). It does not hold the manuscript's final typeset version; the manuscript text here is the author's submitted copy.
+Este repositorio contiene el material suplementario abierto del manuscrito enviado a *Investigación en Educación Médica* (Facultad de Medicina, UNAM). No contiene la versión maquetada final del manuscrito; el texto aquí depositado es la copia enviada por los autores.
 
-## Contents
+## Contenido
 
-- `protocolo/bioetica-ia-docencia-protocolo.pdf` — the research protocol, including the full questionnaire (25 Likert items in seven domains) submitted to and approved by the committee of the Universidad Europea del Atlántico.
-- `data/IA-EDU-DATA-pseudonimizado.csv` — the 667 analyzed responses. Each row carries a study identifier (`ID-001`...) only; no name, contact detail, or employing institution was collected. Semicolon-delimited, UTF-8.
-- `analisis/analyze_survey.py` — the analysis script. Reads only `data/IA-EDU-DATA-pseudonimizado.csv`.
-- `analisis/resumen.txt` — full descriptive and inferential output (all 25 items, domain scores, Cronbach's alpha, group contrasts).
-- `analisis/items.csv` — item-level means, standard deviations, and agreement percentages.
-- `manuscrito/ia-edu-manuscrito.md` — the manuscript text (Spanish, Vancouver style).
-- `referencias/referencias-ia-edu.ris` — the manuscript's 19 references, in RIS format.
+- `protocolo/bioetica-ia-docencia-protocolo.pdf` — el protocolo de investigación, incluido el cuestionario completo (25 ítems Likert en siete dominios) sometido a consideración y aprobado por el comité de la Universidad Europea del Atlántico.
+- `data/IA-EDU-DATA-pseudonimizado.csv` — las 667 respuestas analizadas. Cada fila lleva solo un identificador de estudio (`ID-001`...); no se recolectó nombre, dato de contacto ni institución empleadora. Delimitado por punto y coma, UTF-8.
+- `analisis/analyze_survey.py` — el script de análisis. Lee únicamente `data/IA-EDU-DATA-pseudonimizado.csv`.
+- `analisis/resumen.txt` — salida descriptiva e inferencial completa (los 25 ítems, puntajes de dominio, alfa de Cronbach, contrastes de grupo).
+- `analisis/items.csv` — medias, desviaciones estándar y porcentajes de acuerdo a nivel de ítem.
+- `manuscrito/ia-edu-manuscrito.md` — el texto del manuscrito (español, estilo Vancouver).
+- `referencias/referencias-ia-edu.ris` — las 19 referencias del manuscrito, en formato RIS.
 
-## What is not deposited here, and why
+## Qué no está depositado aquí, y por qué
 
-- The original response file included a 202-response open-ended free-text item. It was read in full during manuscript preparation; none of the responses contained an email address, a name, or the name of an employing institution. It is withheld from this repository as a precaution, since free-text opinion, combined with the demographic fields in the same row, could in principle narrow down a respondent's identity. It is not analyzed in the manuscript either.
-- A notebook used during an earlier, unrelated stage of this research project simulated illustrative figures from randomly generated data (`numpy.random`) rather than from this survey. It never fed into the manuscript's results and is not part of these supplementary materials.
-- Panel-review and pilot-test responses (5 experts; 25 teachers, used only to refine item wording before fieldwork) were not collected as part of the analytic dataset and are not included.
+- El archivo de respuestas original incluía un ítem de texto libre con 202 respuestas. Se leyó en su totalidad durante la preparación del manuscrito; ninguna respuesta contenía una dirección de correo electrónico, un nombre propio ni el nombre de una institución empleadora. Se retiene de este repositorio como precaución, ya que el texto libre, combinado con los campos demográficos de la misma fila, podría en principio acotar la identidad de quien responde. Tampoco se analiza en el manuscrito.
+- Un cuaderno usado en una etapa anterior y no relacionada de este proyecto de investigación simulaba figuras ilustrativas a partir de datos generados aleatoriamente (`numpy.random`), no de esta encuesta. Nunca alimentó los resultados del manuscrito y no forma parte de este material suplementario.
+- Las respuestas del panel de revisión y de la prueba piloto (5 expertos; 25 docentes, usadas solo para depurar la redacción de los ítems antes del trabajo de campo) no se recolectaron como parte del conjunto de datos analítico y no están incluidas.
 
-## Ethics
+## Ética
 
-The protocol was submitted to and approved by the committee of the Universidad Europea del Atlántico. The questionnaire was anonymous and did not require the collection, use, or storage of personal data; no approval number was assigned. Participation was voluntary and required an active consent response before any item was shown.
+El protocolo se sometió a consideración y fue aprobado por el comité de la Universidad Europea del Atlántico. El cuestionario era anónimo y no requería la recolección, uso ni almacenamiento de datos personales; no se asignó un número de aprobación. La participación fue voluntaria y exigía una respuesta activa de consentimiento antes de mostrar cualquier ítem.
 
-## License
+## Licencia
 
-Data and analysis code: CC BY 4.0. Manuscript text: all rights reserved by the authors pending journal decision.
+Datos y código de análisis: CC BY 4.0. Texto del manuscrito: todos los derechos reservados por los autores hasta la decisión editorial.

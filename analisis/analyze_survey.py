@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Descriptive analysis of the university-teacher AI and bioethics survey.
+"""Análisis descriptivo de la encuesta a docentes universitarios sobre IA y bioética.
 
-Reads the deposited response file only. Does not simulate observations.
+Lee únicamente el archivo de respuestas depositado. No simula observaciones.
 
-This is the public-repository version: it reads the pseudonymized CSV in
-data/, which does not include the open-ended free-text column present in
-the original response file (withheld from this repository as a precaution;
-see README.md).
+Esta es la versión del repositorio público: lee el CSV pseudonimizado en
+data/, que no incluye la columna de texto libre presente en el archivo de
+respuestas original (retenida de este repositorio como precaución; ver
+README.md).
 """
 
 from __future__ import annotations
@@ -29,253 +29,234 @@ LIKERT = {
     "De acuerdo": 4,
     "Totalmente de acuerdo": 5,
 }
-AGREE = {"De acuerdo", "Totalmente de acuerdo"}
-
-DOMAIN_EN = {
-    "Conocimiento general sobre inteligencia artificial": "General knowledge of AI",
-    "Percepciones éticas sobre la inteligencia artificial": "Ethical perceptions of AI",
-    "Aplicación de la inteligencia artificial en la educación": "AI in education",
-    "Necesidad de formación en inteligencia artificial y bioética": "Training needs in AI and bioethics",
-    "Integración de la bioética en el currículo": "Curricular integration of AI and bioethics",
-    "Experiencia y percepción personal": "Personal experience and perception",
-    "Percepciones futuras y tendencias": "Future perceptions and trends",
-}
-
-AREA_EN = {
-    "Ciencias médicas y de la salud": "Health sciences",
-    "Ciencias sociales": "Social sciences",
-    "Ingeniería y tecnología": "Engineering and technology",
-    "Humanidades": "Humanities",
-    "Ciencias agrícolas": "Agricultural sciences",
-}
+ACUERDO = {"De acuerdo", "Totalmente de acuerdo"}
 
 
-def sample_sd(values: list[float]) -> float:
-    return statistics.stdev(values) if len(values) > 1 else float("nan")
+def desviacion_estandar(valores: list[float]) -> float:
+    return statistics.stdev(valores) if len(valores) > 1 else float("nan")
 
 
-def mean(values: list[float]) -> float:
-    return statistics.fmean(values)
+def media(valores: list[float]) -> float:
+    return statistics.fmean(valores)
 
 
-def cronbach(matrix: list[list[float]]) -> float:
-    k = len(matrix[0])
-    n = len(matrix)
-    item_vars = []
+def alfa_cronbach(matriz: list[list[float]]) -> float:
+    k = len(matriz[0])
+    n = len(matriz)
+    varianzas_item = []
     for j in range(k):
-        col = [matrix[i][j] for i in range(n)]
-        item_vars.append(statistics.variance(col))
-    totals = [sum(row) for row in matrix]
-    total_var = statistics.variance(totals)
-    if total_var == 0:
+        columna = [matriz[i][j] for i in range(n)]
+        varianzas_item.append(statistics.variance(columna))
+    totales = [sum(fila) for fila in matriz]
+    varianza_total = statistics.variance(totales)
+    if varianza_total == 0:
         return float("nan")
-    return (k / (k - 1)) * (1 - sum(item_vars) / total_var)
+    return (k / (k - 1)) * (1 - sum(varianzas_item) / varianza_total)
 
 
 def spearman(x: list[float], y: list[float]) -> float:
-    def ranks(vals: list[float]) -> list[float]:
-        order = sorted(range(len(vals)), key=lambda i: vals[i])
-        r = [0.0] * len(vals)
+    def rangos(valores: list[float]) -> list[float]:
+        orden = sorted(range(len(valores)), key=lambda i: valores[i])
+        r = [0.0] * len(valores)
         i = 0
-        while i < len(vals):
+        while i < len(valores):
             j = i
-            while j + 1 < len(vals) and vals[order[j + 1]] == vals[order[i]]:
+            while j + 1 < len(valores) and valores[orden[j + 1]] == valores[orden[i]]:
                 j += 1
-            avg = (i + j) / 2 + 1
+            promedio = (i + j) / 2 + 1
             for k in range(i, j + 1):
-                r[order[k]] = avg
+                r[orden[k]] = promedio
             i = j + 1
         return r
 
-    rx, ry = ranks(x), ranks(y)
-    mx, my = mean(rx), mean(ry)
+    rx, ry = rangos(x), rangos(y)
+    mx, my = media(rx), media(ry)
     num = sum((a - mx) * (b - my) for a, b in zip(rx, ry))
     den = math.sqrt(sum((a - mx) ** 2 for a in rx) * sum((b - my) ** 2 for b in ry))
     return num / den if den else float("nan")
 
 
-def cohens_d(a: list[float], b: list[float]) -> float:
+def d_de_cohen(a: list[float], b: list[float]) -> float:
     na, nb = len(a), len(b)
     va, vb = statistics.variance(a), statistics.variance(b)
     sp = math.sqrt(((na - 1) * va + (nb - 1) * vb) / (na + nb - 2))
     if sp == 0:
         return float("nan")
-    return (mean(a) - mean(b)) / sp
+    return (media(a) - media(b)) / sp
 
 
-def mann_whitney_p(a: list[float], b: list[float]) -> float:
-    """Two-sided Mann-Whitney U via normal approximation with tie correction."""
+def p_mann_whitney(a: list[float], b: list[float]) -> float:
+    """U de Mann-Whitney a dos colas, aproximación normal con corrección por empates."""
     n1, n2 = len(a), len(b)
-    combined = [(v, 0) for v in a] + [(v, 1) for v in b]
-    combined.sort(key=lambda t: t[0])
-    ranks = [0.0] * len(combined)
+    combinado = [(v, 0) for v in a] + [(v, 1) for v in b]
+    combinado.sort(key=lambda t: t[0])
+    rangos = [0.0] * len(combinado)
     i = 0
-    tie_term = 0.0
-    while i < len(combined):
+    termino_empates = 0.0
+    while i < len(combinado):
         j = i
-        while j + 1 < len(combined) and combined[j + 1][0] == combined[i][0]:
+        while j + 1 < len(combinado) and combinado[j + 1][0] == combinado[i][0]:
             j += 1
-        avg = (i + j) / 2 + 1
-        tie_n = j - i + 1
-        if tie_n > 1:
-            tie_term += tie_n**3 - tie_n
+        promedio = (i + j) / 2 + 1
+        n_empate = j - i + 1
+        if n_empate > 1:
+            termino_empates += n_empate**3 - n_empate
         for k in range(i, j + 1):
-            ranks[k] = avg
+            rangos[k] = promedio
         i = j + 1
-    r1 = sum(ranks[k] for k in range(len(combined)) if combined[k][1] == 0)
+    r1 = sum(rangos[k] for k in range(len(combinado)) if combinado[k][1] == 0)
     u1 = r1 - n1 * (n1 + 1) / 2
     u2 = n1 * n2 - u1
     u = min(u1, u2)
     mu = n1 * n2 / 2
     n = n1 + n2
-    tie_corr = tie_term / (n * (n - 1)) if n > 1 else 0
-    sigma2 = (n1 * n2 / 12) * ((n + 1) - tie_corr)
+    correccion_empates = termino_empates / (n * (n - 1)) if n > 1 else 0
+    sigma2 = (n1 * n2 / 12) * ((n + 1) - correccion_empates)
     if sigma2 <= 0:
         return float("nan")
     z = (u - mu + 0.5) / math.sqrt(sigma2)
-    # two-sided from complementary error function
+    # dos colas, a partir de la función de error complementaria
     p = math.erfc(abs(z) / math.sqrt(2))
     return p
 
 
-def load() -> tuple[list[str], list[dict[str, str]]]:
+def cargar() -> tuple[list[str], list[dict[str, str]]]:
     with DATA.open(newline="", encoding="utf-8-sig") as handle:
         reader = csv.DictReader(handle, delimiter=";")
-        rows = list(reader)
-        fields = list(reader.fieldnames or [])
-    return fields, rows
+        filas = list(reader)
+        campos = list(reader.fieldnames or [])
+    return campos, filas
 
 
 def main() -> None:
-    fields, rows = load()
-    n = len(rows)
-    id_key, area_key, exp_key, age_key, sex_key, gender_key, inst_key = fields[:7]
-    item_fields = fields[7:]
+    campos, filas = cargar()
+    n = len(filas)
+    clave_id, clave_area, clave_exp, clave_edad, clave_sexo, clave_genero, clave_inst = campos[:7]
+    campos_item = campos[7:]
 
-    domains: list[tuple[str, list[str]]] = []
-    for field in item_fields:
-        domain, _item = field.split(".", 1)
-        if not domains or domains[-1][0] != domain:
-            domains.append((domain, []))
-        domains[-1][1].append(field)
+    dominios: list[tuple[str, list[str]]] = []
+    for campo in campos_item:
+        dominio, _item = campo.split(".", 1)
+        if not dominios or dominios[-1][0] != dominio:
+            dominios.append((dominio, []))
+        dominios[-1][1].append(campo)
 
-    ages = [float(r[age_key]) for r in rows]
-    exps = [float(r[exp_key]) for r in rows]
+    edades = [float(r[clave_edad]) for r in filas]
+    experiencias = [float(r[clave_exp]) for r in filas]
 
-    lines: list[str] = []
-    w = lines.append
-    w(f"source: {DATA}")
+    lineas: list[str] = []
+    w = lineas.append
+    w(f"fuente: {DATA}")
     w(f"n: {n}")
-    w(f"unique_ids: {len({r[id_key] for r in rows})}")
-    w(f"likert_items: {len(item_fields)}")
-    w(f"incomplete_likert: {sum(1 for r in rows if any(not (r[f] or '').strip() for f in item_fields))}")
+    w(f"ids_unicos: {len({r[clave_id] for r in filas})}")
+    w(f"items_likert: {len(campos_item)}")
+    w(f"likert_incompleto: {sum(1 for r in filas if any(not (r[f] or '').strip() for f in campos_item))}")
     w("")
-    w("## Sample")
-    for label, key, mapping in (
-        ("area", area_key, AREA_EN),
-        ("sex", sex_key, None),
-        ("gender", gender_key, None),
-        ("institution", inst_key, None),
+    w("## Muestra")
+    for etiqueta, clave in (
+        ("area", clave_area),
+        ("sexo", clave_sexo),
+        ("genero", clave_genero),
+        ("institucion", clave_inst),
     ):
-        counts = Counter(r[key] for r in rows)
-        w(f"{label}:")
-        for name, count in counts.most_common():
-            shown = mapping.get(name, name) if mapping else name
-            w(f"  {shown}: {count} ({100 * count / n:.1f}%)")
-    sex_gender_mismatch = 0
-    expected = {"Femenino": "Mujer", "Masculino": "Hombre"}
-    for r in rows:
-        if expected.get(r[sex_key]) != r[gender_key]:
-            sex_gender_mismatch += 1
-    w(f"sex_gender_mismatches: {sex_gender_mismatch}")
+        conteos = Counter(r[clave] for r in filas)
+        w(f"{etiqueta}:")
+        for nombre, conteo in conteos.most_common():
+            w(f"  {nombre}: {conteo} ({100 * conteo / n:.1f}%)")
+    discordancia_sexo_genero = 0
+    esperado = {"Femenino": "Mujer", "Masculino": "Hombre"}
+    for r in filas:
+        if esperado.get(r[clave_sexo]) != r[clave_genero]:
+            discordancia_sexo_genero += 1
+    w(f"discordancias_sexo_genero: {discordancia_sexo_genero}")
     w(
-        f"age: n={len(ages)} mean={mean(ages):.2f} sd={sample_sd(ages):.2f} "
-        f"median={statistics.median(ages):.1f} min={min(ages):.0f} max={max(ages):.0f}"
+        f"edad: n={len(edades)} media={media(edades):.2f} de={desviacion_estandar(edades):.2f} "
+        f"mediana={statistics.median(edades):.1f} min={min(edades):.0f} max={max(edades):.0f}"
     )
     w(
-        f"experience_years: n={len(exps)} mean={mean(exps):.2f} sd={sample_sd(exps):.2f} "
-        f"median={statistics.median(exps):.1f} min={min(exps):.0f} max={max(exps):.0f}"
+        f"experiencia_docente_anos: n={len(experiencias)} media={media(experiencias):.2f} de={desviacion_estandar(experiencias):.2f} "
+        f"mediana={statistics.median(experiencias):.1f} min={min(experiencias):.0f} max={max(experiencias):.0f}"
     )
-    w(f"spearman_age_experience: {spearman(ages, exps):.3f}")
+    w(f"spearman_edad_experiencia: {spearman(edades, experiencias):.3f}")
     w("")
 
-    item_rows = []
-    w("## Items")
-    for index, field in enumerate(item_fields, start=1):
-        domain, item = field.split(".", 1)
-        coded = [LIKERT[r[field]] for r in rows]
-        agree = sum(1 for r in rows if r[field] in AGREE)
-        strong = sum(1 for r in rows if r[field] == "Totalmente de acuerdo")
-        neutral = sum(1 for r in rows if r[field] == "Neutral")
-        item_rows.append(
+    filas_item = []
+    w("## Ítems")
+    for indice, campo in enumerate(campos_item, start=1):
+        dominio, item = campo.split(".", 1)
+        codificado = [LIKERT[r[campo]] for r in filas]
+        acuerdo = sum(1 for r in filas if r[campo] in ACUERDO)
+        totalmente_acuerdo = sum(1 for r in filas if r[campo] == "Totalmente de acuerdo")
+        neutral = sum(1 for r in filas if r[campo] == "Neutral")
+        filas_item.append(
             {
-                "item": index,
-                "domain_en": DOMAIN_EN[domain],
-                "item_es": item,
-                "mean": f"{mean(coded):.2f}",
-                "sd": f"{sample_sd(coded):.2f}",
-                "agree_n": agree,
-                "agree_pct": f"{100 * agree / n:.1f}",
-                "strongly_agree_pct": f"{100 * strong / n:.1f}",
+                "item": indice,
+                "dominio": dominio,
+                "item_texto": item,
+                "media": f"{media(codificado):.2f}",
+                "de": f"{desviacion_estandar(codificado):.2f}",
+                "acuerdo_n": acuerdo,
+                "acuerdo_pct": f"{100 * acuerdo / n:.1f}",
+                "totalmente_acuerdo_pct": f"{100 * totalmente_acuerdo / n:.1f}",
                 "neutral_pct": f"{100 * neutral / n:.1f}",
             }
         )
         w(
-            f"{index:02d} agree={100 * agree / n:5.1f}% mean={mean(coded):.2f} "
-            f"sd={sample_sd(coded):.2f} | {DOMAIN_EN[domain]} | {item}"
+            f"{indice:02d} acuerdo={100 * acuerdo / n:5.1f}% media={media(codificado):.2f} "
+            f"de={desviacion_estandar(codificado):.2f} | {dominio} | {item}"
         )
 
     w("")
-    w("## Domains")
-    domain_scores: dict[str, list[float]] = {}
-    for domain, item_list in domains:
-        matrix = [[LIKERT[r[f]] for f in item_list] for r in rows]
-        scores = [mean(row) for row in matrix]
-        domain_scores[domain] = scores
-        alpha = cronbach(matrix)
+    w("## Dominios")
+    puntajes_dominio: dict[str, list[float]] = {}
+    for dominio, lista_items in dominios:
+        matriz = [[LIKERT[r[f]] for f in lista_items] for r in filas]
+        puntajes = [media(fila) for fila in matriz]
+        puntajes_dominio[dominio] = puntajes
+        alfa = alfa_cronbach(matriz)
         w(
-            f"{DOMAIN_EN[domain]}: items={len(item_list)} alpha={alpha:.3f} "
-            f"mean={mean(scores):.2f} sd={sample_sd(scores):.2f}"
+            f"{dominio}: items={len(lista_items)} alfa={alfa:.3f} "
+            f"media={media(puntajes):.2f} de={desviacion_estandar(puntajes):.2f}"
         )
 
-    technical = "Ingeniería y tecnología"
+    tecnica = "Ingeniería y tecnología"
     w("")
-    w("## Engineering and technology versus all other areas")
-    for domain, _items in domains:
-        a = [domain_scores[domain][i] for i, r in enumerate(rows) if r[area_key] == technical]
-        b = [domain_scores[domain][i] for i, r in enumerate(rows) if r[area_key] != technical]
-        d = cohens_d(a, b)
-        p = mann_whitney_p(a, b)
+    w("## Ingeniería y tecnología frente al resto de las áreas")
+    for dominio, _items in dominios:
+        a = [puntajes_dominio[dominio][i] for i, r in enumerate(filas) if r[clave_area] == tecnica]
+        b = [puntajes_dominio[dominio][i] for i, r in enumerate(filas) if r[clave_area] != tecnica]
+        d = d_de_cohen(a, b)
+        p = p_mann_whitney(a, b)
         w(
-            f"{DOMAIN_EN[domain]}: tech_n={len(a)} tech_mean={mean(a):.2f} "
-            f"other_n={len(b)} other_mean={mean(b):.2f} d={d:.2f} mannwhitney_p={p:.4g}"
+            f"{dominio}: n_tecnica={len(a)} media_tecnica={media(a):.2f} "
+            f"n_resto={len(b)} media_resto={media(b):.2f} d={d:.2f} p_mannwhitney={p:.4g}"
         )
 
-    knowledge = "Conocimiento general sobre inteligencia artificial"
+    conocimiento = "Conocimiento general sobre inteligencia artificial"
     w("")
-    w(f"spearman_experience_knowledge: {spearman(exps, domain_scores[knowledge]):.3f}")
-    w(f"spearman_age_knowledge: {spearman(ages, domain_scores[knowledge]):.3f}")
+    w(f"spearman_experiencia_conocimiento: {spearman(experiencias, puntajes_dominio[conocimiento]):.3f}")
+    w(f"spearman_edad_conocimiento: {spearman(edades, puntajes_dominio[conocimiento]):.3f}")
 
-    private = "Privada"
+    privada = "Privada"
     w("")
-    w("## Private versus public institution, general knowledge")
-    a = [domain_scores[knowledge][i] for i, r in enumerate(rows) if r[inst_key] == private]
-    b = [domain_scores[knowledge][i] for i, r in enumerate(rows) if r[inst_key] != private]
+    w("## Institución privada frente a pública, conocimiento general")
+    a = [puntajes_dominio[conocimiento][i] for i, r in enumerate(filas) if r[clave_inst] == privada]
+    b = [puntajes_dominio[conocimiento][i] for i, r in enumerate(filas) if r[clave_inst] != privada]
     w(
-        f"private_n={len(a)} private_mean={mean(a):.2f} sd={sample_sd(a):.2f} "
-        f"public_n={len(b)} public_mean={mean(b):.2f} sd={sample_sd(b):.2f} "
-        f"d={cohens_d(a, b):.2f} mannwhitney_p={mann_whitney_p(a, b):.4g}"
+        f"n_privada={len(a)} media_privada={media(a):.2f} de={desviacion_estandar(a):.2f} "
+        f"n_publica={len(b)} media_publica={media(b):.2f} de={desviacion_estandar(b):.2f} "
+        f"d={d_de_cohen(a, b):.2f} p_mannwhitney={p_mann_whitney(a, b):.4g}"
     )
 
-    summary = OUT / "resumen.txt"
-    summary.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    resumen = OUT / "resumen.txt"
+    resumen.write_text("\n".join(lineas) + "\n", encoding="utf-8")
 
-    items_path = OUT / "items.csv"
-    with items_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(item_rows[0].keys()))
+    ruta_items = OUT / "items.csv"
+    with ruta_items.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(filas_item[0].keys()))
         writer.writeheader()
-        writer.writerows(item_rows)
-    print(summary.read_text(encoding="utf-8"))
+        writer.writerows(filas_item)
+    print(resumen.read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

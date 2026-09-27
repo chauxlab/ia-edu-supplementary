@@ -1,26 +1,26 @@
-item,domain_en,item_es,mean,sd,agree_n,agree_pct,strongly_agree_pct,neutral_pct
-1,General knowledge of AI,Entiendo los principios básicos de la IA,3.70,0.98,448,67.2,18.1,22.0
-2,General knowledge of AI,Estoy familiarizado/a con las aplicaciones actuales de la IA en mi campo de estudio,3.46,0.93,362,54.3,9.1,33.0
-3,General knowledge of AI,Conozco los avances recientes en el desarrollo de la tecnología de IA,3.40,0.92,349,52.3,7.0,33.3
-4,General knowledge of AI,Puedo explicar cómo la IA puede influir en mi disciplina académica,3.32,1.00,324,48.6,7.9,32.8
-5,Ethical perceptions of AI,Considero que la IA plantea desafíos éticos significativos,3.90,0.97,508,76.2,26.5,15.0
-6,Ethical perceptions of AI,Estoy preocupado/a por los problemas de privacidad de datos relacionados con la IA,3.81,0.99,475,71.2,23.7,19.3
-7,Ethical perceptions of AI,Creo que los sesgos en los algoritmos de la IA pueden conducir a decisiones injustas,3.61,0.92,403,60.4,14.5,28.5
-8,Ethical perceptions of AI,La autonomía de las decisiones tomadas por sistemas de IA es una preocupación ética importante,3.87,0.85,502,75.3,19.9,18.9
-9,Ethical perceptions of AI,Es esencial considerar las implicaciones éticas en el desarrollo y uso de la IA,4.16,0.87,559,83.8,39.0,12.3
-10,AI in education,La IA puede mejorar significativamente la calidad de la enseñanza y el aprendizaje,3.76,1.15,459,68.8,28.9,16.3
-11,AI in education,Estoy a favor de integrar herramientas de IA en mi práctica docente,3.90,1.03,491,73.6,30.0,18.9
-12,AI in education,La IA podría ayudar en la personalización del aprendizaje para los estudiantes,3.81,1.06,452,67.8,27.7,22.6
-13,AI in education,Tengo reservas sobre la dependencia de la IA en la evaluación académica,3.51,0.95,353,52.9,12.6,37.6
-14,Training needs in AI and bioethics,Me beneficiaría de una formación adicional sobre IA y sus aplicaciones,4.15,0.99,564,84.6,42.0,9.1
-15,Training needs in AI and bioethics,Hay una necesidad de incluir más contenido sobre bioética de la IA en los programas académicos,4.16,0.97,548,82.2,42.9,12.3
-16,Training needs in AI and bioethics,Siento la necesidad de entender mejor los aspectos éticos de la IA,4.29,0.91,611,91.6,46.5,3.3
-17,Curricular integration of AI and bioethics,Es importante incluir temas de IA y bioética en el currículo universitario,3.93,1.04,479,71.8,33.7,20.8
-18,Curricular integration of AI and bioethics,Los estudiantes deberían estar más expuestos a las cuestiones éticas de la IA,4.09,0.96,552,82.8,37.0,9.6
-19,Curricular integration of AI and bioethics,La formación en bioética de la IA es crucial para futuros profesionales,4.18,0.96,551,82.6,44.8,11.7
-20,Personal experience and perception,He utilizado IA en mi investigación o enseñanza,2.92,1.33,235,35.2,14.1,28.6
-21,Personal experience and perception,La IA cambiará significativamente la forma en la que enseñemos en los próximos años,3.95,0.93,528,79.2,26.2,14.2
-22,Personal experience and perception,Estoy emocionado/a por las posibilidades que la IA ofrece para mi campo de estudio,3.72,0.98,378,56.7,25.0,35.7
-23,Personal experience and perception,Tengo preocupaciones personales sobre el impacto de la IA en el empleo y la sociedad,3.77,0.96,446,66.9,22.2,24.6
-24,Future perceptions and trends,La IA jugará un papel clave en el avance de mi disciplina en el futuro,3.74,1.07,431,64.6,25.8,25.5
-25,Future perceptions and trends,Es importante estar al tanto de las tendencias emergentes en IA para mi desarrollo profesional,4.11,0.93,576,86.4,34.6,7.6
+item,dominio,item_texto,media,de,acuerdo_n,acuerdo_pct,totalmente_acuerdo_pct,neutral_pct
+1,Conocimiento general sobre inteligencia artificial,Entiendo los principios básicos de la IA,3.70,0.98,448,67.2,18.1,22.0
+2,Conocimiento general sobre inteligencia artificial,Estoy familiarizado/a con las aplicaciones actuales de la IA en mi campo de estudio,3.46,0.93,362,54.3,9.1,33.0
+3,Conocimiento general sobre inteligencia artificial,Conozco los avances recientes en el desarrollo de la tecnología de IA,3.40,0.92,349,52.3,7.0,33.3
+4,Conocimiento general sobre inteligencia artificial,Puedo explicar cómo la IA puede influir en mi disciplina académica,3.32,1.00,324,48.6,7.9,32.8
+5,Percepciones éticas sobre la inteligencia artificial,Considero que la IA plantea desafíos éticos significativos,3.90,0.97,508,76.2,26.5,15.0
+6,Percepciones éticas sobre la inteligencia artificial,Estoy preocupado/a por los problemas de privacidad de datos relacionados con la IA,3.81,0.99,475,71.2,23.7,19.3
+7,Percepciones éticas sobre la inteligencia artificial,Creo que los sesgos en los algoritmos de la IA pueden conducir a decisiones injustas,3.61,0.92,403,60.4,14.5,28.5
+8,Percepciones éticas sobre la inteligencia artificial,La autonomía de las decisiones tomadas por sistemas de IA es una preocupación ética importante,3.87,0.85,502,75.3,19.9,18.9
+9,Percepciones éticas sobre la inteligencia artificial,Es esencial considerar las implicaciones éticas en el desarrollo y uso de la IA,4.16,0.87,559,83.8,39.0,12.3
+10,Aplicación de la inteligencia artificial en la educación,La IA puede mejorar significativamente la calidad de la enseñanza y el aprendizaje,3.76,1.15,459,68.8,28.9,16.3
+11,Aplicación de la inteligencia artificial en la educación,Estoy a favor de integrar herramientas de IA en mi práctica docente,3.90,1.03,491,73.6,30.0,18.9
+12,Aplicación de la inteligencia artificial en la educación,La IA podría ayudar en la personalización del aprendizaje para los estudiantes,3.81,1.06,452,67.8,27.7,22.6
+13,Aplicación de la inteligencia artificial en la educación,Tengo reservas sobre la dependencia de la IA en la evaluación académica,3.51,0.95,353,52.9,12.6,37.6
+14,Necesidad de formación en inteligencia artificial y bioética,Me beneficiaría de una formación adicional sobre IA y sus aplicaciones,4.15,0.99,564,84.6,42.0,9.1
+15,Necesidad de formación en inteligencia artificial y bioética,Hay una necesidad de incluir más contenido sobre bioética de la IA en los programas académicos,4.16,0.97,548,82.2,42.9,12.3
+16,Necesidad de formación en inteligencia artificial y bioética,Siento la necesidad de entender mejor los aspectos éticos de la IA,4.29,0.91,611,91.6,46.5,3.3
+17,Integración de la bioética en el currículo,Es importante incluir temas de IA y bioética en el currículo universitario,3.93,1.04,479,71.8,33.7,20.8
+18,Integración de la bioética en el currículo,Los estudiantes deberían estar más expuestos a las cuestiones éticas de la IA,4.09,0.96,552,82.8,37.0,9.6
+19,Integración de la bioética en el currículo,La formación en bioética de la IA es crucial para futuros profesionales,4.18,0.96,551,82.6,44.8,11.7
+20,Experiencia y percepción personal,He utilizado IA en mi investigación o enseñanza,2.92,1.33,235,35.2,14.1,28.6
+21,Experiencia y percepción personal,La IA cambiará significativamente la forma en la que enseñemos en los próximos años,3.95,0.93,528,79.2,26.2,14.2
+22,Experiencia y percepción personal,Estoy emocionado/a por las posibilidades que la IA ofrece para mi campo de estudio,3.72,0.98,378,56.7,25.0,35.7
+23,Experiencia y percepción personal,Tengo preocupaciones personales sobre el impacto de la IA en el empleo y la sociedad,3.77,0.96,446,66.9,22.2,24.6
+24,Percepciones futuras y tendencias,La IA jugará un papel clave en el avance de mi disciplina en el futuro,3.74,1.07,431,64.6,25.8,25.5
+25,Percepciones futuras y tendencias,Es importante estar al tanto de las tendencias emergentes en IA para mi desarrollo profesional,4.11,0.93,576,86.4,34.6,7.6
