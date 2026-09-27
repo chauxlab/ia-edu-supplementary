@@ -1,5 +1,5 @@
 ---
-version: 0.9
+version: 0.10
 status: ready
 language: es
 citation_style: vancouver
@@ -11,11 +11,11 @@ title_en: "Knowledge, ethical concerns, and training needs regarding artificial 
 short_title: "IA en docentes universitarios paraguayos: conocimiento, ética y formación"
 ---
 
-**Andrea Paola Britos Gómez¹ (ORCID: 0009-0000-8655-9881), Alcides Chaux¹\* (ORCID: 0000-0002-5824-9867)**
+**Andrea Paola Britos Gómez¹ (ORCID: 0009-0000-8655-9881, paola.britos@chauxlab.com), Alcides Chaux¹\* (ORCID: 0000-0002-5824-9867, alcides.chaux@chauxlab.com)**
 
 ¹ChauxLab Institute, Asunción, Paraguay
 
-\*Autor de correspondencia: Alcides Chaux — alcides@alcideschaux.com
+\*Autor de correspondencia: Alcides Chaux — alcides.chaux@chauxlab.com
 
 # RESUMEN
 
