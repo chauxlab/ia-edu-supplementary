@@ -2,7 +2,7 @@
 
 Andrea Paola Britos Gómez, Alcides Chaux — ChauxLab Institute, Asunción, Paraguay
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22996911.svg)](https://doi.org/10.5281/zenodo.22996911)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22996878.svg)](https://doi.org/10.5281/zenodo.22996878)
 
 Este repositorio contiene el material suplementario abierto del manuscrito enviado a *Investigación en Educación Médica* (Facultad de Medicina, UNAM). No contiene la versión maquetada final del manuscrito; el texto aquí depositado es la copia enviada por los autores.
 

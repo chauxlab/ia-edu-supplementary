@@ -1,5 +1,5 @@
 ---
-version: 0.11
+version: 0.12
 status: submitted
 language: es
 citation_style: vancouver
@@ -168,7 +168,7 @@ Los autores declaran no tener conflictos de interés.
 
 # DISPONIBILIDAD DE DATOS
 
-El protocolo de investigación (con el cuestionario completo), el conjunto de datos pseudonimizado (667 respuestas, sin la columna de texto libre), el script de análisis y sus salidas, y el listado de referencias en formato RIS están depositados en acceso abierto en https://github.com/chauxlab/ia-edu-supplementary, archivado en Zenodo con DOI de concepto 10.5281/zenodo.22996911 (resuelve siempre a la versión archivada más reciente).
+El protocolo de investigación (con el cuestionario completo), el conjunto de datos pseudonimizado (667 respuestas, sin la columna de texto libre), el script de análisis y sus salidas, y el listado de referencias en formato RIS están depositados en acceso abierto en https://github.com/chauxlab/ia-edu-supplementary, archivado en Zenodo con DOI de concepto 10.5281/zenodo.22996878 (resuelve siempre a la versión archivada más reciente).
 
 # REFERENCIAS
 
