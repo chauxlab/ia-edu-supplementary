@@ -16,7 +16,8 @@ Este repositorio contiene el material suplementario abierto del manuscrito envia
 - `analisis/generar_figuras.py` — genera las Figuras 1 y 2 del manuscrito a partir del mismo CSV pseudonimizado (matplotlib). Reproducible: los archivos en `figuras/` son su salida exacta.
 - `figuras/figura1_puntajes_dominio.png` y `figuras/figura2_uso_declarado.png` — las dos figuras del manuscrito, generadas por el script anterior a partir de las 667 respuestas reales (no simuladas). Se repiten, idénticas, en `manuscrito/figuras/` para que las referencias relativas del propio manuscrito se vean correctamente al abrirlo directo en GitHub.
 - `manuscrito/ia-edu-manuscrito.md` — el texto del manuscrito (español, estilo Vancouver).
-- `referencias/referencias-ia-edu.ris` — las 19 referencias del manuscrito, en formato RIS.
+- `manuscrito/ia-edu-tabla-s1.md` — material suplementario: medias, desviaciones estándar y porcentajes de acuerdo a nivel de ítem para los 25 enunciados, referenciado desde el manuscrito como Tabla S1.
+- `referencias/referencias-ia-edu.ris` — las 23 referencias del manuscrito, en formato RIS.
 
 ## Qué no está depositado aquí, y por qué
 
