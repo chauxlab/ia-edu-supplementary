@@ -167,7 +167,7 @@ def figura_2(campos: list[str], filas: list[dict[str, str]]) -> None:
         ax1.text(i, p + 2, f"{p:.1f}%\n(n={n})", ha="center", fontsize=8, color=GRIS_TEXTO)
     ax1.set_xticks(list(x1))
     ax1.set_xticklabels([etiquetas_area[a] for a in areas_orden], fontsize=8)
-    ax1.set_ylabel("Uso declarado de IA en\ninvestigación o docencia (%)")
+    ax1.set_ylabel("Acuerdo con haber usado IA en\ninvestigación o docencia (%)")
     ax1.set_ylim(0, 78)
     ax1.set_title("Por área académica", fontsize=10, color=GRIS_TEXTO, loc="left")
     estilo_ejes(ax1)

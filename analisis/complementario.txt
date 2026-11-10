@@ -1,0 +1,50 @@
+n = 113
+## Acuerdo por ítem (n, %, IC 95 % de Wilson)
+01 75 66.4 (57.3-74.4)
+02 60 53.1 (43.9-62.0)
+03 60 53.1 (43.9-62.0)
+04 55 48.7 (39.7-57.8)
+05 84 74.3 (65.6-81.5)
+06 79 69.9 (60.9-77.6)
+07 67 59.3 (50.1-67.9)
+08 83 73.5 (64.6-80.7)
+09 94 83.2 (75.2-89.0)
+10 76 67.3 (58.2-75.2)
+11 81 71.7 (62.8-79.2)
+12 74 65.5 (56.3-73.6)
+13 58 51.3 (42.2-60.3)
+14 95 84.1 (76.2-89.7)
+15 91 80.5 (72.3-86.8)
+16 103 91.2 (84.5-95.1)
+17 79 69.9 (60.9-77.6)
+18 93 82.3 (74.2-88.2)
+19 93 82.3 (74.2-88.2)
+20 40 35.4 (27.2-44.6)
+21 88 77.9 (69.4-84.5)
+22 63 55.8 (46.6-64.6)
+23 73 64.6 (55.4-72.8)
+24 72 63.7 (54.5-72.0)
+25 97 85.8 (78.2-91.1)
+
+Ítem 20 (experiencia con IA): acuerdo 40/113; desacuerdo 41; neutral 32
+## Ítem 20 por área
+Ciencias agrícolas: 0/1 0.0 (0.0-79.3)
+Ciencias médicas y de la salud: 27/79 34.2 (24.7-45.2)
+Ciencias sociales: 5/14 35.7 (16.3-61.2)
+Humanidades: 2/9 22.2 (6.3-54.7)
+Ingeniería y tecnología: 6/10 60.0 (31.3-83.2)
+## Ciencias de la salud, por institución
+Privada: 21/52 40.4 (28.2-53.9)
+Pública: 6/27 22.2 (10.6-40.8)
+Fisher: SignificanceResult(statistic=np.float64(2.370967741935484), pvalue=np.float64(0.13650085962242933))
+Diferencia (privada - pública): 18.2 puntos (IC -2.4 a 38.7)
+OR ajustado (privada, por sexo, edad/10 y años/10): 2.39 (IC 0.75-7.58)
+## Conocimiento: ingeniería y tecnología frente a las demás áreas
+Ing. n=10 media 3.77 DE 1.20; resto n=103 media 3.42 DE 0.84
+Mann-Whitney: MannwhitneyuResult(statistic=np.float64(649.0), pvalue=np.float64(0.17328448629492044))
+Welch: TtestResult(statistic=np.float64(0.921726447942544), pvalue=np.float64(0.37865779852718967), df=np.float64(9.866775707924493))
+Diferencia 0.36 (IC -0.51 a 1.22)
+d de Cohen 0.41 (IC remuestreo -0.47 a 1.26); delta de Cliff 0.26 (IC -0.17 a 0.67)
+## Dominios alternativos
+Aplicación en la educación, ítems 10-12: alfa 0.92; ítem 13: acuerdo 58/113; r con 10-12: 0.42, 0.48, 0.45
+Experiencia y percepción personal, ítems 21-23: alfa 0.82

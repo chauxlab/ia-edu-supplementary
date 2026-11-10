@@ -274,20 +274,6 @@ DO  - 10.2196/48254
 ER  -
 
 TY  - JOUR
-AU  - Salas-Pilco, Sdenka Zobeida
-AU  - Yang, Yuqin
-AU  - Zhang, Zhe
-TI  - Student engagement in online learning in Latin American higher education during the COVID-19 pandemic: A systematic review
-T2  - British Journal of Educational Technology
-PY  - 2022
-VL  - 53
-IS  - 3
-SP  - 593
-EP  - 619
-DO  - 10.1111/bjet.13190
-ER  -
-
-TY  - JOUR
 AU  - von Elm, Erik
 AU  - Altman, Douglas G
 AU  - Egger, Matthias
@@ -319,7 +305,6 @@ IS  - 10
 SP  - e39565
 DO  - 10.2196/39565
 ER  -
-
 
 TY  - JOUR
 AU  - Vergara, Diego
@@ -363,3 +348,4 @@ PY  - 2024
 CY  - Paris
 PB  - UNESCO
 ER  -
+
